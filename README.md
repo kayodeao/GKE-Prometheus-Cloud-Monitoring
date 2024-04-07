@@ -32,6 +32,7 @@ After creating your cluster, you need to get authentication credentials to inter
 ```bash
 gcloud container clusters get-credentials hello-cluster --location=us-central1
 ```
+![](kubernetes_cluster.png)
 
 ## Step 2: Configure your environment
 Configure the kubectl CLI to use your cluster:
