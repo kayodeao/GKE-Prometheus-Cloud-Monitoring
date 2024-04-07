@@ -10,7 +10,8 @@ This repository serves as a central hub for understanding and implementing monit
 
 ## Key Features
 
-- **Managed Service for Prometheus (MSP)**: Learn how to leverage Google's Managed Service for Prometheus to collect, store, and query metrics from your GKE clusters effortlessly.
+- **Managed Service for Prometheus (MSP)**: Learn how to leverage [Google's Managed Service for Prometheus](https://cloud.google.com/stackdriver/docs/managed-prometheus)
+ to collect, store, and query metrics from your GKE clusters effortlessly.
 - **Sample Application Deployment**: Follow step-by-step instructions to deploy a sample application on GKE and instrument it for monitoring with Prometheus.
 - **Grafana Visualization**: Explore best practices for configuring Grafana dashboards to visualize metrics collected by Prometheus, including request rate metrics, latency, error rates, and more.
 - **PromQL Queries**: Dive into PromQL (Prometheus Query Language) to write custom queries for analyzing and troubleshooting your application metrics.
