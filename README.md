@@ -49,7 +49,7 @@ The example application emits the ```example_requests_total``` counter metric an
 
 To deploy the example application, run the following command:
 ```bash
-kubectl -n promlab apply -f https://raw.githubusercontent.com/GoogleCloudPlatform/prometheus-engine/v0.8.2/examples/example-app.yaml
+kubectl -n <NAMESPACE_NAME> apply -f https://raw.githubusercontent.com/GoogleCloudPlatform/prometheus-engine/v0.8.2/examples/example-app.yaml
 ```
 ## Step 4: Configure a PodMonitoring resource
 To ingest the metric data emitted by the example application, Managed Service for Prometheus uses target scraping. Target scraping and metrics ingestion are configured using Kubernetes custom resources. The managed service uses PodMonitoring custom resources (CRs).PodMonitoring is a Kubernetes custom resource that allows you to define which pods you want to monitor and how you want to collect metrics from them. By creating PodMonitoring resources, you can tell MSP which pods to scrape metrics from and how often to scrape them.
@@ -99,7 +99,7 @@ nano target_status.yaml
 Save the file within nano by pressing Ctrl+O and then confirm by pressing Enter. Exit nano using Ctrl+X.
 Apply
 ```
-kuectl -n <NAMESPACE_NAME> apply target_status.yaml
+kubectl -n <NAMESPACE_NAME> apply target_status.yaml
 ```
 
 After a few seconds, the Status.Endpoint Statuses field appears on every valid PodMonitoring resource, when configured.
@@ -154,11 +154,11 @@ If you don't have a running Grafana deployment in your cluster, then you can cre
 To create an ephemeral Grafana deployment, apply the Managed Service for Prometheus grafana.yaml manifest to your cluster, and port-forward the grafana service to your local machine. The following example forwards the service to port 3000.
 1. Apply the grafana.yaml manifest:
    ```
-   kubectl -n promlab apply -f  https://raw.githubusercontent.com/GoogleCloudPlatform/prometheus-engine/6ebc1afa8e609febe8d687bb7fa6bd2375e46db1/examples/grafana.yaml
+   kubectl -n <NAMESPACE_NAME> apply -f  https://raw.githubusercontent.com/GoogleCloudPlatform/prometheus-engine/6ebc1afa8e609febe8d687bb7fa6bd2375e46db1/examples/grafana.yaml
    ```
 2. Port-forward the grafana service to your local machine. This example forwards the service to port 3000:
    ```
-   kubectl -n promlab port-forward svc/grafana 3000
+   kubectl -n <NAMESPACE_NAME> port-forward svc/grafana 3000
    ```
    This command does not return, and while it is running, it reports accesses to the URL.
 
