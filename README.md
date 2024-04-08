@@ -99,7 +99,7 @@ nano target_status.yaml
 Save the file within nano by pressing Ctrl+O and then confirm by pressing Enter. Exit nano using Ctrl+X.
 Apply
 ```
-kubectl -n <NAMESPACE_NAME> apply target_status.yaml
+kubectl apply -f target_status.yaml
 ```
 
 After a few seconds, the Status.Endpoint Statuses field appears on every valid PodMonitoring resource, when configured.
