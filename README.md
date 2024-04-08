@@ -96,6 +96,8 @@ run this command and copy/paste the manifest above
 ```
 nano target_status.yaml
 ```
+Save the file within nano by pressing Ctrl+O and then confirm by pressing Enter. Exit nano using Ctrl+X.
+
 After a few seconds, the Status.Endpoint Statuses field appears on every valid PodMonitoring resource, when configured.
 
 If you have a PodMonitoring resource with the name prom-example in your ```NAMESPACE_NAME``` namespace, then you can check the status by running the following command:
