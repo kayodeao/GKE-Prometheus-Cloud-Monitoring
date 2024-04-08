@@ -73,7 +73,7 @@ spec:
 To apply this resource, run the following command:
 
 ```bash
-kubectl -n promlab apply -f https://raw.githubusercontent.com/GoogleCloudPlatform/prometheus-engine/v0.8.2/examples/pod-monitoring.yaml
+kubectl -n <NAMESPACE_NAME> apply -f https://raw.githubusercontent.com/GoogleCloudPlatform/prometheus-engine/v0.8.2/examples/pod-monitoring.yaml
 ```
 
 Your [managed collector](https://cloud.google.com/stackdriver/docs/managed-prometheus#gmp-data-collection) is now scraping the matching pods. You can view the status of your scrape target by enabling the target status feature.
@@ -97,13 +97,17 @@ run this command and copy/paste the manifest above
 nano target_status.yaml
 ```
 Save the file within nano by pressing Ctrl+O and then confirm by pressing Enter. Exit nano using Ctrl+X.
+Apply
+```
+kuectl -n <NAMESPACE_NAME> apply target_status.yaml
+```
 
 After a few seconds, the Status.Endpoint Statuses field appears on every valid PodMonitoring resource, when configured.
 
 If you have a PodMonitoring resource with the name prom-example in your ```NAMESPACE_NAME``` namespace, then you can check the status by running the following command:
 
 ```
-kubectl -n NAMESPACE_NAME describe podmonitorings/prom-example
+kubectl -n <NAMESPACE_NAME> describe podmonitorings/prom-example
 ```
 The output looks like the following:
 ```
