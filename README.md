@@ -157,4 +157,4 @@ The simplest way to query your Prometheus data is to use the Cloud Monitoring Me
 ```
 example_requests_total
 ```
-
+![](visualized_metrics.png)
