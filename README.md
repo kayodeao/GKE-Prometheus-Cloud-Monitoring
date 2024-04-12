@@ -1,6 +1,6 @@
-# GKE Prometheus Grafana Monitoring
+# GKE Prometheus Cloud Monitoring
 
-This project aims to provide a comprehensive guide and resources for monitoring applications deployed on Google Kubernetes Engine (GKE) using Prometheus and visualizing the metrics in Grafana.
+This project aims to provide a comprehensive guide and resources for monitoring applications deployed on Google Kubernetes Engine (GKE) using Prometheus and visualizing the metrics using Google's Cloud Monitoring.
 
 ## Introduction
 
@@ -13,8 +13,8 @@ This project serves as a central hub for understanding and implementing monitori
 - **Managed Service for Prometheus (MSP)**: Learn how to leverage [Google's Managed Service for Prometheus](https://cloud.google.com/stackdriver/docs/managed-prometheus)
  to collect, store, and query metrics from your GKE clusters effortlessly.
 - **Sample Application Deployment**: Follow step-by-step instructions to deploy a sample application on GKE and instrument it for monitoring with Prometheus.
-- **Grafana Visualization**: Explore best practices for configuring Grafana dashboards to visualize metrics collected by Prometheus, including request rate metrics, latency, error rates, and more.
-- **PromQL Queries**: Dive into PromQL (Prometheus Query Language) to write custom queries for analyzing and troubleshooting your application metrics.
+- **Visualization with Cloud Monitoring**: When working with metric data, including data from Managed Service for Prometheus, in Cloud Monitoring, you can use the query tools provided by Cloud Monitoring such as PromQL.
+
 
 ## Step 1: Create a GKE Cluster
 A GKE cluster consists of a cluster control plane machine and multiple worker machines called nodes. You deploy applications to clusters, and the applications run on the nodes. 
@@ -147,20 +147,14 @@ Status:
           ...
         Last Scrape Duration Seconds:  0.006224887
 ```
-## Step 5: Query the metrics using Grafana
-After you have deployed Google Cloud Managed Service for Prometheus, you can query the data sent to the managed service and display the results in charts and dashboards.
-If you don't have a running Grafana deployment in your cluster, then you can create an ephemeral test deployment to experiment with.
+## Step 5: Query the metrics using PromQL in Cloud Monitoring
+The simplest way to query your Prometheus data is to use the Cloud Monitoring Metrics Explorer page in the Google Cloud console. To verify that your Prometheus data is being collected correctly, do the following:
 
-To create an ephemeral Grafana deployment, apply the Managed Service for Prometheus grafana.yaml manifest to your cluster, and port-forward the grafana service to your local machine. The following example forwards the service to port 3000.
-1. Apply the grafana.yaml manifest:
-   ```
-   kubectl -n <NAMESPACE_NAME> apply -f  https://raw.githubusercontent.com/GoogleCloudPlatform/prometheus-engine/6ebc1afa8e609febe8d687bb7fa6bd2375e46db1/examples/grafana.yaml
-   ```
-2. Port-forward the grafana service to your local machine. This example forwards the service to port 3000:
-   ```
-   kubectl -n <NAMESPACE_NAME> port-forward svc/grafana 3000
-   ```
-   This command does not return, and while it is running, it reports accesses to the URL.
-
-You can access Grafana in your browser at the URL http://localhost:3000 with the username:password admin:admin. 
+1. In the navigation panel of the Google Cloud console, select Monitoring, and then select  Metrics explorer
+2. In the toolbar of the query-builder pane, select the button whose name is either code MQL or code PromQL.
+3. Ensure the Auto-run toogle switch is off.
+4. Enter the following query into the editor, and then click Run query:
+```
+example_requests_total
+```
 
