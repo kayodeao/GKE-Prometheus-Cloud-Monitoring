@@ -4,7 +4,7 @@ This project aims to provide a comprehensive guide and resources for monitoring 
 
 ## Introduction
 
-As organizations increasingly adopt microservices architectures and containerized applications, effective monitoring and observability become crucial for ensuring reliability, performance, and scalability. Google Kubernetes Engine (GKE) offers a robust platform for deploying and managing containerized workloads, while Prometheus and Grafana provide powerful tools for monitoring and visualizing metrics.
+As organizations increasingly adopt microservices architectures and containerized applications, effective monitoring and observability become crucial for ensuring reliability, performance, and scalability. Google Kubernetes Engine (GKE) offers a robust platform for deploying and managing containerized workloads, while Prometheus google cloud monitoring provide powerful tools for monitoring and visualizing metrics.
 
 This project serves as a central hub for understanding and implementing monitoring solutions using Prometheus and Grafana on GKE. Whether you're new to Kubernetes monitoring or looking to optimize your existing monitoring setup, you'll find resources, tutorials, and best practices to help you monitor your applications effectively.
 
